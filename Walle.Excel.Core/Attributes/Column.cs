@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Walle.NPOI.Extension.Attributes
+namespace Walle.Excel.Core.Attributes
 {
     /// <summary>
-    /// 
+    /// 列
     /// </summary>
     public class Column : Attribute
     {
         /// <summary>
-        /// 
+        /// 列
         /// </summary>
         /// <param name="Index">列索引</param>
         /// <param name="Title">列名</param>
@@ -30,6 +30,6 @@ namespace Walle.NPOI.Extension.Attributes
         public int Index { get; set; } = 0;
         public bool Ignore { get; set; } = false;
         public object DefaultValue { get; set; } = null;
-        internal string Value { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
     }
 }

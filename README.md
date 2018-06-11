@@ -23,7 +23,7 @@
     }
 ```    
 
-- 放在````IEnumable<T>```中,如下:
+- 放在```IEnumable<T>```中,如下:
 
 ```
     static void Main(string[] args)

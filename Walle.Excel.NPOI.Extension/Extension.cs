@@ -4,9 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Walle.NPOI.Extension.Attributes;
+using Walle.Excel.Core;
+using Walle.Excel.Core.Attributes;
 
-namespace Walle.NPOI.Extension
+namespace Walle.Excel.NPOI.Extension
 {
     public static class Extension
     {
@@ -16,11 +17,10 @@ namespace Walle.NPOI.Extension
             {
                 var book = new XSSFWorkbook();
                 var sheet = book.CreateSheet(sheetName);
-                sheet = list.ToSheet(sheet);
+                sheet = sheet.FromList<T>(list);
                 book.Write(fs);
             }
         }
-
         public static byte[] ToExcelContent<T>(this IEnumerable<T> list, string sheetName = "Sheet1") where T : class, ISheetRow, new()
         {
             var filePath = Guid.NewGuid().ToString() + ".xlsx";
@@ -28,7 +28,7 @@ namespace Walle.NPOI.Extension
             {
                 var book = new XSSFWorkbook();
                 var sheet = book.CreateSheet(sheetName);
-                sheet = list.ToSheet(sheet);
+                sheet = sheet.FromList(list);
                 book.Write(fs);
             }
             byte[] bytes;
@@ -45,8 +45,8 @@ namespace Walle.NPOI.Extension
             return bytes;
         }
 
-
-        public static ISheet ToSheet<T>(this IEnumerable<T> list, ISheet sheet) where T : class, ISheetRow, new()
+        #region private
+        private static ISheet FromList<T>(this ISheet sheet, IEnumerable<T> list) where T : class, ISheetRow, new()
         {
             sheet.CreateTitleRow<T>();
             int index = 1;
@@ -57,9 +57,6 @@ namespace Walle.NPOI.Extension
             }
             return sheet;
         }
-
-        #region private
-
         private static void CreateTitleRow<T>(this ISheet sheet) where T : class, ISheetRow, new()
         {
             var type = typeof(T);

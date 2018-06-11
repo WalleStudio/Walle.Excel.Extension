@@ -8,4 +8,8 @@
     <PackageReference Include="DotNetCore.NPOI" Version="1.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Walle.Excel.Core\Walle.Excel.Core.csproj" />
+  </ItemGroup>
+
 </Project>

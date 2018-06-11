@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Walle.Excel.Core\Walle.Excel.Core.csproj" />
+    <ProjectReference Include="..\Walle.Excel.EPPlus.Extension\Walle.Excel.EPPlus.Extension.csproj" />
+    <ProjectReference Include="..\Walle.Excel.NPOI.Extension\Walle.Excel.NPOI.Extension.csproj" />
+  </ItemGroup>
+
+</Project>

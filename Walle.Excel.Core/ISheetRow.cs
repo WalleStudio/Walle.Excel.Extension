@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Walle.NPOI.Extension.Attributes
+namespace Walle.Excel.Core
 {
     public interface ISheetRow
     {

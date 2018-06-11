@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Walle.NPOI.Extension.Attributes;
+using Walle.Excel.Core;
+using Walle.Excel.Core.Attributes;
+using Walle.Excel.EPPlus.Extension;
+//using Walle.Excel.NPOI.Extension;
 
-namespace Walle.NPOI.Extension.Demo
+namespace Walle.Excel.Demo
 {
     class Program
     {
@@ -36,6 +39,15 @@ namespace Walle.NPOI.Extension.Demo
             };
 
             people.ToExcel("c:/people.xlsx");
+
+            var result = people.ToExcelContent();
+            foreach (var item in result)
+            {
+                Console.Write(item);
+            }
+
+            Console.WriteLine("Press any key!");
+            Console.ReadKey();
         }
     }
 
