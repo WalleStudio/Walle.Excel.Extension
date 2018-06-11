@@ -27,21 +27,15 @@ namespace Walle.Excel.NPOI.Extension
             using (var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
                 var book = new XSSFWorkbook();
-                var sheet = book.CreateSheet(sheetName);
-                sheet = sheet.FromList(list);
+                var sheet = book.CreateSheet(sheetName).FromList(list);
                 book.Write(fs);
             }
-            byte[] bytes;
-            using (FileStream fileStream = new FileStream(filePath, FileMode.Open))
-            {
-                BinaryReader r = new BinaryReader(fileStream);
-                r.BaseStream.Seek(0, SeekOrigin.Begin);
-                bytes = r.ReadBytes((int)r.BaseStream.Length);
-            }
+            byte[] bytes = File.ReadAllBytes(filePath);
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
             }
+
             return bytes;
         }
 
