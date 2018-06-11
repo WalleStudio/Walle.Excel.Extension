@@ -1,8 +1,10 @@
-# Walle.NPOI.Extension
+# Walle.Excel.Extension
 
-针对NCC社区的NPOI版本进行的一些扩展类.
+可以快速使用的跨平台Excel帮助类,可选NPOI版本和EPPLUS版本.
+- 针对NCC社区的NPOI版本进行的一些扩展类.
+- 针对EPPLUS进行的一些扩展类.
 
-## Demo
+## 查看部分Demo 或运行测试项目
 
 - 将你的实体类继承于```ISheetRow```接口,实体类Demo如下:
 
