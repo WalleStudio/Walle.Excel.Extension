@@ -21,22 +21,16 @@ namespace Walle.Excel.NPOI.Extension
                 book.Write(fs);
             }
         }
+
         public static byte[] ToExcelContent<T>(this IEnumerable<T> list, string sheetName = "Sheet1") where T : class, ISheetRow, new()
         {
-            var filePath = Guid.NewGuid().ToString() + ".xlsx";
-            using (var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            using (var ms = new MemoryStream())
             {
                 var book = new XSSFWorkbook();
                 var sheet = book.CreateSheet(sheetName).FromList(list);
-                book.Write(fs);
+                book.Write(ms);
+                return ms.ToArray();
             }
-            byte[] bytes = File.ReadAllBytes(filePath);
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-
-            return bytes;
         }
 
         #region private

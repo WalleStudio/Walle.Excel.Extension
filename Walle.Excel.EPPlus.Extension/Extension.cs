@@ -21,25 +21,22 @@ namespace Walle.Excel.EPPlus.Extension
             using (ExcelPackage package = new ExcelPackage(file))
             {
                 //创建sheet
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(sheetName);
-                worksheet = worksheet.FromList<T>(list);
+                package.Workbook.Worksheets.Add(sheetName).FromList<T>(list);
                 package.Save();
             }
         }
 
         public static byte[] ToExcelContent<T>(this IEnumerable<T> list, string sheetName = "Sheet1") where T : class, ISheetRow, new()
         {
-            var filePath = Guid.NewGuid().ToString() + ".xlsx";
-            list.ToExcel<T>(filePath, sheetName);
-            byte[] bytes = File.ReadAllBytes(filePath);
-            if (File.Exists(filePath))
+            using (var ms = new MemoryStream())
             {
-                File.Delete(filePath);
+                ExcelPackage package = new ExcelPackage(ms);
+    
+                package.Workbook.Worksheets.Add(sheetName).FromList(list);
+                package.Save();
+                return ms.ToArray();
             }
-            return bytes;
         }
-
-
 
         #region private
         private static ExcelWorksheet FromList<T>(this ExcelWorksheet sheet, IEnumerable<T> list) where T : class, ISheetRow, new()

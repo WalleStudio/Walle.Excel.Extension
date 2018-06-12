@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Walle.Excel.EPPlus.Extensio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Walle.Excel.NPOI.Extension", "Walle.Excel.NPOI.Extension\Walle.Excel.NPOI.Extension.csproj", "{3DDC31E6-5AC6-45D7-8412-3DD8D59CEC79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walle.Excel.Demo", "Walle.Excel.Demo\Walle.Excel.Demo.csproj", "{D003A3CB-117A-40BE-AE2B-F50A3E6D8B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Walle.Excel.Demo", "Walle.Excel.Demo\Walle.Excel.Demo.csproj", "{D003A3CB-117A-40BE-AE2B-F50A3E6D8B76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Walle.Excel.Demo.Web", "Walle.Excel.Demo.Web\Walle.Excel.Demo.Web.csproj", "{62B81E62-A1A0-4205-AF61-B12FD6E5933A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D003A3CB-117A-40BE-AE2B-F50A3E6D8B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D003A3CB-117A-40BE-AE2B-F50A3E6D8B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D003A3CB-117A-40BE-AE2B-F50A3E6D8B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B81E62-A1A0-4205-AF61-B12FD6E5933A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B81E62-A1A0-4205-AF61-B12FD6E5933A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B81E62-A1A0-4205-AF61-B12FD6E5933A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B81E62-A1A0-4205-AF61-B12FD6E5933A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
