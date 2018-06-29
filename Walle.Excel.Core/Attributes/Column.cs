@@ -23,13 +23,17 @@ namespace Walle.Excel.Core.Attributes
             this.DateFormat = DateFormat;
             this.Ignore = Ignore;
             this.DefaultValue = DefaultValue;
+            if (DefaultValue == null)
+            {
+                this.DefaultValue = string.Empty;
+            }
         }
 
         public string Title { get; set; } = string.Empty;
         public string DateFormat { get; set; } = "yyyy-MM-dd HH:mm:ss";
         public int Index { get; set; } = 0;
         public bool Ignore { get; set; } = false;
-        public object DefaultValue { get; set; } = null;
+        public object DefaultValue { get; set; } = string.Empty;
         public string Value { get; set; } = string.Empty;
     }
 }

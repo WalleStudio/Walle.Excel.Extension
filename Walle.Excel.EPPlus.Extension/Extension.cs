@@ -31,7 +31,7 @@ namespace Walle.Excel.EPPlus.Extension
             using (var ms = new MemoryStream())
             {
                 ExcelPackage package = new ExcelPackage(ms);
-    
+
                 package.Workbook.Worksheets.Add(sheetName).FromList(list);
                 package.Save();
                 return ms.ToArray();
@@ -123,6 +123,11 @@ namespace Walle.Excel.EPPlus.Extension
             if (value is null || value == null)
             {
                 value = col.DefaultValue;
+            }
+            if (value is string && string.IsNullOrWhiteSpace(value.ToString()) && col.DefaultValue != null)
+            {
+                col.Value = col.DefaultValue.ToString();
+                return;
             }
             if (value is DateTime)
             {
