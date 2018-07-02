@@ -82,6 +82,7 @@ namespace Walle.Excel.EPPlus.Extension
                 sheet.SetValue(rowIndex, index, title);
                 index++;
             }
+            sheet.Cells.AutoFitColumns();
         }
 
         private static void CreateContentRow<T>(this ExcelWorksheet sheet, T item, int index) where T : class, ISheetRow, new()
@@ -116,6 +117,7 @@ namespace Walle.Excel.EPPlus.Extension
                 sheet.SetValue(index, colIndex, title);
                 colIndex++;
             }
+            sheet.Cells.AutoFitColumns();
         }
 
         private static void SetValue(this Column col, object value)
